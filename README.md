@@ -56,6 +56,8 @@ Em execução independente do código exportado e das correções de dependênci
 - **Build de produção aprovado**.
 - **npm audit com 0 vulnerabilidades reportadas**, na data e no conjunto de dependências auditados.
 
+Auditoria com Bun: os alertas de severidade alta identificados inicialmente no `bun.lock` foram corrigidos; restou um alerta **moderado** em `minimatch`, dependência transitiva da ferramenta de desenvolvimento ESLint, sem função identificada no fluxo público de pedidos. Avaliações de segurança dependem das versões instaladas e devem ser revalidadas.
+
 Esses resultados não provam ausência total de defeitos ou conformidade integral. O estudante já declarou a aprovação manual dos casos de cancelamento, campos obrigatórios, filtros, edição/exclusão e verificação básica de responsividade/teclado/contraste. Leitor de tela e falha real de armazenamento em navegador público não têm validação independente registrada.
 
 ## Mercado e Business Model Canvas — hipóteses
@@ -89,7 +91,17 @@ A elaboração priorizou escopo mínimo, ausência de dados reais, confirmação
 
 ## Aplicação publicada
 
-A URL pública e capturas reais serão acrescentadas **somente após confirmação do deploy e acesso não autenticado**. A prévia do editor não é evidência de publicação.
+**[Acessar o Pedido em Dia](https://pedido-em-dia-otavio-diniz.lovable.app)** — aplicação publicada no Lovable em 19/11/2026. As rotas `/`, `/solicitar` e `/painel` retornaram HTTP 200 em requisições públicas sem autenticação após o deploy. Esse teste de disponibilidade não substitui testes completos de interação.
+
+### Capturas da aplicação publicada
+
+![Página inicial do Pedido em Dia](docs/screenshots/home.png)
+
+![Formulário de solicitação](docs/screenshots/solicitar.png)
+
+![Painel demonstrativo](docs/screenshots/painel.png)
+
+As imagens foram capturadas por navegador headless diretamente das URLs públicas, em perfil isolado sem dados de cliente.
 
 ## Contexto e créditos
 
