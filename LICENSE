@@ -1,0 +1,28 @@
+PEDIDO EM DIA — LICENÇA PROPRIETÁRIA PARA AVALIAÇÃO ACADÊMICA E PORTFÓLIO
+
+Copyright © 2026 Otávio Diniz. Todos os direitos reservados sobre os materiais autorais específicos do projeto, nos limites dos direitos efetivamente detidos pelo autor.
+
+1. Objeto e alcance
+Esta licença disciplina apenas os elementos originais específicos do Pedido em Dia sobre os quais o autor possui direitos. Não reivindica titularidade sobre dependências, componentes genéricos, tecnologias, modelos, marcas, materiais institucionais, recursos licenciados por terceiros ou direitos de plataformas de desenvolvimento.
+
+2. Publicação pública não equivale a licença open source
+O repositório está público para apresentação profissional, inspeção, demonstração e avaliação acadêmica. Essa disponibilidade não coloca a obra em domínio público nem concede licença geral de código aberto. O uso das funcionalidades normais do GitHub continua regido pelos respectivos termos da plataforma.
+
+3. Permissão limitada para avaliação
+Avaliadores, docentes, estudantes, recrutadores e revisores podem visualizar, baixar ou clonar e executar os materiais autorais na extensão razoavelmente necessária para examinar este projeto e reproduzir sua demonstração educacional, sem inserir dados pessoais reais e preservando os avisos de autoria e limitações.
+
+Esta permissão não inclui redistribuição pública independente, exploração comercial, sublicenciamento, prestação de serviços, incorporação em outro produto, republicação como obra própria ou distribuição de produtos derivados. Outros usos dependem de autorização prévia e escrita do titular dos direitos pertinentes.
+
+4. Componentes de terceiros
+Dependências npm, frameworks, ícones, fontes externas e componentes de interface seguem as licenças de seus respectivos titulares. O aplicativo foi construído com apoio de ferramentas de IA e Lovable; seu uso não confere ao autor direitos que pertençam a terceiros. Esta licença não altera nem revoga licenças de terceiros. Consulte também o arquivo NOTICE.md.
+
+5. Instituições e marcas
+Santander, Santander Open Academy, Digital Innovation One/DIO, Lovable, GitHub e demais nomes e marcas citados pertencem a seus respectivos titulares. A referência registra contexto educacional ou tecnológico, não aprovação, parceria, endosso ou certificação institucional deste projeto.
+
+6. Ausência de garantia
+O protótipo é disponibilizado "NO ESTADO EM QUE SE ENCONTRA", sem garantia de adequação a uso profissional, comercial, operacional, proteção integral de dados ou disponibilidade permanente. O aplicativo não deve processar solicitações ou dados pessoais reais.
+
+7. Solicitações de permissão
+Qualquer utilização além da permissão limitada acima depende de autorização escrita do titular dos direitos pertinentes.
+
+Esta licença entra em vigor para os materiais próprios a partir de sua publicação e não altera os direitos preexistentes de qualquer terceiro.

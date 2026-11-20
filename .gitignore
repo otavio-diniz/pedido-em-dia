@@ -30,3 +30,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Local Lovable/editor instructions — never publish
+.lovable/
+AGENTS.md
+src/routes/README.md

@@ -2,111 +2,133 @@
 
 **Solicitar com clareza. Acompanhar com simplicidade.**
 
-MVP educacional de uma aplicação web para registrar e acompanhar **solicitações fictícias** de pequenos serviços de manutenção residencial. O projeto foi criado como exercício de concepção de produto, construção assistida por IA e validação de um protótipo.
+**Protótipo educacional funcional | Santander — Construa seu Primeiro App com IA / DIO | React + TypeScript**
 
-> **Atenção:** isto é uma demonstração didática. Não são oferecidos atendimentos reais, agendamentos, pagamentos nem contratos. Não insira dados pessoais reais.
+O **Pedido em Dia** demonstra como organizar solicitações **fictícias** de pequenos serviços de manutenção residencial, do formulário à revisão humana e ao acompanhamento por status. O público hipotético são prestadores autônomos e pessoas que precisam descrever e acompanhar pedidos sem informações dispersas.
 
-## Problema e hipótese
+> **Demonstração, não serviço real:** não oferece contratos, atendimento, pagamentos ou agendamentos efetivos. Não informe dados pessoais, contatos ou endereços verdadeiros.
 
-Pequenos prestadores podem receber pedidos dispersos e incompletos, dificultando sua organização. Esta é uma **hipótese não validada com clientes**. O Pedido em Dia demonstra uma alternativa de formulário estruturado, confirmação de dados e acompanhamento por estados; não comprova demanda, economia de tempo ou viabilidade comercial.
+**[Abrir a aplicação pública](https://pedido-em-dia-otavio-diniz.lovable.app)** · [Ver o guia de reprodução](docs/guia-reproducao.md) · [Decisões e validação](docs/decisoes-e-validacao.md)
 
-## O que o MVP implementa
+## Problema e proposta de valor
 
-- Página inicial com explicação da proposta e aviso de uso fictício.
-- Formulário com categoria, título, descrição, bairro fictício opcional e prioridade.
-- Revisão e confirmação antes de salvar, com cancelamento sem persistência.
-- Identificador local estável, inclusive após edição e mudança de estado.
-- Painel de demonstração com os estados **Novo**, **Em análise**, **Agendado** e **Concluído**.
-- Filtros, busca, contagens, edição, exclusão confirmada, exemplos fictícios e limpeza.
-- Validação de campos e avisos para indisponibilidade do armazenamento.
+**Hipótese a validar:** pedidos de manutenção recebidos por conversas soltas podem chegar incompletos e ser difíceis de acompanhar. O protótipo testa, apenas em demonstração, se estruturar a solicitação e mostrar o estado do pedido ajuda a tornar a comunicação mais clara. Não há evidência de demanda, clientes, redução de custos ou ganhos de produtividade.
 
-**Não implementado:** autenticação, backend de pedidos, base remota, sincronização, WhatsApp, e-mail, cobrança, serviço efetivo ou IA conversacional.
+## Solução e fluxo principal
 
-## Arquitetura
+1. O solicitante escolhe uma categoria, descreve um serviço **inventado** e informa uma prioridade.
+2. Antes de gravar, revisa os dados e pode voltar, cancelar ou confirmar.
+3. Após confirmar, recebe um identificador local estável e o status **Novo**.
+4. No **Painel (demo)**, acompanha estados, filtra, pesquisa, edita e exclui os registros fictícios.
 
-A interface utiliza **React 19**, **TypeScript**, **TanStack Start/Router**, **Tailwind CSS 4**, componentes Radix e **Zod** para validação. **Vitest** e Testing Library compõem os testes. Os pedidos ficam no **localStorage** do próprio navegador, sem banco de dados de negócio. O framework usa SSR para hospedar a aplicação; isso não transforma o armazenamento em servidor multiusuário.
+Não existem contas de usuário, acesso compartilhado, envio de mensagens, WhatsApp, base remota nem painel administrativo protegido. A expressão “Agendado” é apenas um **estado simulado**; não cria visitas reais.
 
-Arquivos principais:
+## Estado atual e demonstração
 
-- `src/routes/` — início, solicitação e painel.
-- `src/components/pedidos/` — elementos do fluxo e da administração demonstrativa.
-- `src/lib/pedidos/` — regras, validação, persistência, filtros e status.
-- `src/test/` — testes automatizados.
+**MVP educacional publicado:** a página inicial, a solicitação e o painel estão acessíveis publicamente. O código está neste repositório, e **17 testes automatizados** passaram em execução independente em 19/11/2026. A validação com clientes e a homologação acadêmica institucional **não são inferidas** desse estado técnico.
 
-## Executar e testar localmente
+<details>
+<summary>Ver capturas autênticas do aplicativo publicado (somente dados fictícios)</summary>
 
-Requisitos: **Node.js 26** e **npm 11**, versões usadas na validação independente em 19/11/2026. O repositório possui `package-lock.json` e `bun.lock`; use **um único** gerenciador para cada instalação. O procedimento efetivamente testado foi:
+**Página inicial**
+
+![Página inicial do Pedido em Dia, com identificação do caráter educacional](docs/screenshots/home.png)
+
+**Solicitação fictícia**
+
+![Formulário de uma solicitação demonstrativa](docs/screenshots/solicitar.png)
+
+**Painel após carregar três exemplos fictícios**
+
+![Painel funcional com três exemplos fictícios e seus estados](docs/screenshots/painel.png)
+
+</details>
+
+## Quickstart — do clone ao primeiro uso
+
+Pré-requisitos do ambiente **efetivamente testado**: Windows, Node.js **26.13.1**, npm **11.20.0**, Git e acesso ao registro npm. Outras plataformas e versões não foram homologadas.
 
 ```bash
+git clone https://github.com/otavio-diniz/pedido-em-dia.git
+cd pedido-em-dia
 npm ci --ignore-scripts
-npm run test
-npm run lint
-npx tsc --noEmit
-npm run build
 npm run dev
 ```
 
-O uso de `--ignore-scripts` vale para a instalação verificada, e pode exigir adaptação futura caso haja dependência legítima de scripts de instalação. O projeto possui preset de build Nitro/Cloudflare; publicação alternativa exige adequar o destino de hospedagem.
+Abra a URL local informada pelo Vite (frequentemente `http://localhost:5173`). Se preferir experimentar **sem instalação**, use a [demonstração publicada](https://pedido-em-dia-otavio-diniz.lovable.app).
 
-## Verificações realizadas
+No painel, use **Carregar exemplos fictícios** para explorar três casos sintéticos; ou crie uma solicitação no formulário e confirme. A persistência é exclusiva de cada navegador/perfil e não sincroniza dispositivos.
 
-Em execução independente do código exportado e das correções de dependência:
-- **17 testes automatizados aprovados** (2 arquivos de teste).
-- **Lint e verificação TypeScript aprovados** após ajustes de formatação e compatibilidade com Zod 4.
-- **Build de produção aprovado**.
-- **npm audit com 0 vulnerabilidades reportadas**, na data e no conjunto de dependências auditados.
+**Reprodução, testes, saídas esperadas, limitações de ambiente e troubleshooting:** [guia de reprodução](docs/guia-reproducao.md). Este é o local canônico para os comandos de validação e detalhes operacionais.
 
-Auditoria com Bun: os alertas de severidade alta identificados inicialmente no `bun.lock` foram corrigidos; restou um alerta **moderado** em `minimatch`, dependência transitiva da ferramenta de desenvolvimento ESLint, sem função identificada no fluxo público de pedidos. Avaliações de segurança dependem das versões instaladas e devem ser revalidadas.
+## Arquitetura, tecnologias e código
 
-Esses resultados não provam ausência total de defeitos ou conformidade integral. O estudante já declarou a aprovação manual dos casos de cancelamento, campos obrigatórios, filtros, edição/exclusão e verificação básica de responsividade/teclado/contraste. Leitor de tela e falha real de armazenamento em navegador público não têm validação independente registrada.
+| Camada | Implementação real |
+|---|---|
+| Interface | React 19, TypeScript, Tailwind CSS 4 e componentes Radix |
+| Rotas e renderização | TanStack Router/Start e infraestrutura Vite/Nitro |
+| Regras e validação | TypeScript, Zod 4 e checagens de dados sensíveis por padrões simples |
+| Persistência demonstrativa | `localStorage` do navegador, **sem banco de dados cloud de pedidos** |
+| Testes | Vitest e Testing Library |
+| Criação assistida | Lovable e engenharia de prompts |
 
-## Mercado e Business Model Canvas — hipóteses
+Pastas principais: `src/routes/` (páginas), `src/lib/pedidos/` (validação, IDs, armazenamento e filtros), `src/components/pedidos/` (interface) e `src/test/` (testes). `package-lock.json` e `bun.lock` registram resoluções de dois gerenciadores; use **apenas um** deles por instalação.
 
-- **Segmentos:** prestadores autônomos de manutenção e pessoas que desejam organizar solicitações.
-- **Proposta de valor:** clareza no pedido e visibilidade de andamento.
-- **Canais:** link do formulário demonstrativo.
-- **Relacionamento:** retorno humano manual em um eventual serviço real; não automatizado aqui.
-- **Atividades e recursos:** receber e classificar pedidos, acompanhar estados; aplicativo e processo operacional.
-- **Parceiros:** nenhum confirmado.
-- **Receita possível:** hipótese de assinatura futura, não testada e não implementada.
-- **Custos:** hospedagem, operação e manutenção ainda não quantificados.
+## Testes e evidências
 
-**TAM/SAM/SOM:** não há dimensionamento específico validado. Não confundir estatísticas amplas de serviços com estimativa de clientes deste produto.
+A partir de instalação limpa com npm, em **19/11/2026**, foram reproduzidos **17/17 testes** (2 arquivos), lint, verificação TypeScript e build com código de saída zero. O `npm audit` daquele conjunto reportou **0 vulnerabilidades**. A auditoria do `bun.lock` corrigido ainda aponta **1 vulnerabilidade moderada** em uma dependência transitiva do ESLint; isso não é uma aprovação global de segurança.
 
-## Engenharia de prompts
+A versão hospedada no Lovable **não está comprovadamente sincronizada** com todas as correções transitivas de lockfile feitas no GitHub. O acesso HTTP às rotas públicas e as capturas de tela comprovam disponibilidade e aparência observada, mas não certificam o conjunto completo de interações, segurança ou acessibilidade.
 
-O aplicativo foi especificado em PRD e mega prompt ratificados pelo estudante, com assistência de IA e implementação no Lovable. Consulte [o mega prompt autoral ratificado](docs/mega-prompt-autoral.md). A transcrição literal da mensagem enviada ao Lovable não está recuperável integralmente nesta versão do histórico acessível; o documento é identificado como **especificação autoral ratificada**, não como prova de entrada literal. O escopo efetivo e as correções estão refletidos no código e no histórico de commits.
+Detalhes rastreáveis, diferenças entre versões, testes e limites: [decisões e validação](docs/decisoes-e-validacao.md).
 
-A elaboração priorizou escopo mínimo, ausência de dados reais, confirmação antes da gravação, prevenção de duplicidade e persistência local sem custos externos.
+## Segurança, privacidade e limitações
 
-## Segurança e privacidade
+- Os pedidos permanecem apenas no navegador que os criou; apagar o armazenamento remove os registros.
+- A detecção por padrões de e-mail/números é **parcial** e não impede todo tipo de informação pessoal. Use só dados fictícios.
+- Qualquer pessoa com acesso ao mesmo perfil de navegador pode ler, alterar ou apagar os pedidos.
+- Não há autenticação, processamento de pagamentos, proteção multiusuário, atendimento real nem certificação de conformidade com a LGPD.
+- O aplicativo pode carregar fontes web externas; a publicação não deve ser interpretada como ausência absoluta de recursos ou telemetria de terceiros.
+- A análise de segurança do ambiente Lovable deve ser repetida após sincronização das dependências e antes da homologação final.
 
-- Usar **somente dados fictícios**. As verificações textuais não identificam todos os nomes próprios nem endereços escritos por extenso.
-- Qualquer pessoa com acesso ao mesmo perfil do navegador pode inspecionar, modificar ou apagar os registros.
-- Limpar os dados do navegador remove os pedidos; não há sincronização nem backup em servidor.
-- Nenhuma informação real de cliente deve ser tratada por este protótipo. O app não é solução certificada de LGPD ou segurança.
-- Não existem contas individuais, pagamentos ou autenticação de usuários.
-- Ferramentas do ambiente de desenvolvimento podem conter telemetria de erros; a divulgação pública não deve prometer ausência absoluta de telemetria.
-- Bibliotecas e ativos de terceiros conservam seus direitos e licenças próprios.
+## Mercado, tese e Business Model Canvas — hipóteses
 
-## Aplicação publicada
+**Tese de produto:** estruturar pedidos demonstrativos e dar visibilidade ao estado pode facilitar a organização de pequenos serviços. Isso **ainda não foi validado comercialmente**.
 
-**[Acessar o Pedido em Dia](https://pedido-em-dia-otavio-diniz.lovable.app)** — aplicação publicada no Lovable em 19/11/2026. As rotas `/`, `/solicitar` e `/painel` retornaram HTTP 200 em requisições públicas sem autenticação após o deploy. Esse teste de disponibilidade não substitui testes completos de interação.
+| Bloco do Canvas | Hipótese de trabalho, não resultado |
+|---|---|
+| Segmentos de clientes | Prestadores autônomos de manutenção e pessoas que fazem solicitações |
+| Proposta de valor | Pedidos mais claros e rastreamento simples |
+| Canais | Link de formulário ou compartilhamento direto |
+| Relacionamento | Contato humano manual em eventual operação futura |
+| Fontes de receita | Possível assinatura futura — **não implementada ou testada** |
+| Recursos principais | Interface, processo de triagem e disponibilidade do operador |
+| Atividades principais | Registrar, organizar e acompanhar solicitações |
+| Parcerias principais | Nenhuma parceria comercial confirmada |
+| Estrutura de custos | Hospedagem, atendimento e manutenção — valores **não estimados** |
 
-### Capturas da aplicação publicada
+**TAM/SAM/SOM:** o levantamento atual permite formular hipóteses de público, mas **não sustenta valores monetários ou números de clientes** do Pedido em Dia. Estimativas exigiriam delimitação geográfica, fontes oficiais, premissas documentadas e validação humana; não foram apresentadas como números comprovados.
 
-![Página inicial do Pedido em Dia](docs/screenshots/home.png)
+## Engenharia de prompts e aprendizados
 
-![Formulário de solicitação](docs/screenshots/solicitar.png)
+O escopo foi definido em PRD e [mega prompt autoral ratificado](docs/mega-prompt-autoral.md), com apoio de IA e prototipação no Lovable. A especificação publicada **não se apresenta como cópia literal autenticada** de todo o conteúdo enviado ao editor.
 
-![Painel demonstrativo](docs/screenshots/painel.png)
+As decisões verificáveis incluem limitar dados a exemplos, exigir confirmação antes da gravação, preservar identificadores e separar um painel demonstrativo de uma área administrativa real. Consulte [as mudanças e verificações observadas](docs/decisoes-e-validacao.md). **Não são inventadas mensagens de correção** cuja literalidade não tenha sido recuperada.
 
-As imagens foram capturadas por navegador headless diretamente das URLs públicas, em perfil isolado sem dados de cliente.
+## Possibilidades futuras — não implementadas
 
-## Contexto e créditos
+Pesquisa com usuários e prestadores; validação quantitativa de mercado; uma arquitetura cloud com privacidade e autenticação adequadas; testes de acessibilidade com tecnologia assistiva; sincronização real entre dispositivos. Nenhuma dessas possibilidades é apresentada como funcionalidade existente ou entrega concluída.
 
-Atividade de aprendizagem no desafio *Da Ideia de Negócio ao MVP com Lovable*, do programa Santander — Construa seu Primeiro App com IA, na [Digital Innovation One](https://github.com/digitalinnovationone), com reconhecimento ao [Santander Open Academy](https://www.santanderopenacademy.com/pt_br/index.html). Não há endosso, parceria comercial nem vínculo profissional decorrente dessas menções.
+## Contexto acadêmico, referências e reconhecimento
 
-## Licenciamento
+Este projeto integra, como exercício autoral, o desafio **“Da Ideia de Negócio ao MVP com Lovable”** no programa **Santander — Construa seu Primeiro App com IA**, ofertado no ecossistema de aprendizagem da **[DIO — Digital Innovation One](https://github.com/digitalinnovationone)**, com reconhecimento ao **[Santander Open Academy](https://www.santanderopenacademy.com/pt_br/index.html)**. Agradeço pelo contexto formativo e pelas referências didáticas. **A menção não implica endosso, aprovação, certificação, parceria ou vínculo profissional** dessas entidades com o projeto.
 
-Não foi atribuída licença de reutilização ao código próprio. As dependências mantêm seus direitos e licenças próprios. A ausência de um arquivo LICENSE não autoriza reutilização ampla por terceiros.
+Outros trabalhos públicos **independentes** do mesmo autor, citados apenas como contexto de aprendizagem:
+- [Mapa do Mês — Finanças Pessoais com IA](https://github.com/otavio-diniz/mapa-do-mes-financas-pessoais-ia): exercício de Vibe Coding do programa Santander/DIO, sem código executável publicado nesse repositório.
+- [Assistente de Investimentos com RPA e n8n](https://github.com/otavio-diniz/dio-lab-assistente-investimentos-rpa-n8n): outro programa Santander/DIO, relacionado à automação, não componente do Pedido em Dia.
+
+## Autoria, licença e direitos de terceiros
+
+**© 2026 Otávio Diniz. Todos os direitos reservados sobre os materiais autorais específicos deste projeto, observados os direitos de terceiros.** O repositório é público para demonstração, inspeção e avaliação acadêmica, **não é software de código aberto licenciado para reutilização irrestrita**.
+
+Os termos de avaliação limitada, proveniência, atribuições e direitos de componentes de terceiros estão em [LICENSE](LICENSE) e [NOTICE.md](NOTICE.md). Para relatar erros ou sugerir melhorias, consulte [CONTRIBUTING.md](CONTRIBUTING.md).
