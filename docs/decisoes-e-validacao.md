@@ -1,6 +1,6 @@
 # Decisões de produto e evolução técnica — Pedido em Dia
 
-Este documento descreve **somente o que pode ser confrontado com o código e as verificações de 19/11/2026**. Não substitui o histórico integral das mensagens enviadas ao Lovable nem certifica conclusão acadêmica.
+Este documento descreve **somente o que pode ser confrontado com o código e as verificações de 19 e 20/11/2026**. Não substitui o histórico integral das mensagens enviadas ao Lovable nem certifica conclusão acadêmica.
 
 ## Decisões implementadas
 
@@ -32,7 +32,7 @@ Essas mudanças são **ajustes técnicos observados**. Não se afirma que todas 
 - `bun audit`: depois das correções transitivas, permanece **um aviso moderado em `minimatch`**, dependência ligada à cadeia de ferramentas de desenvolvimento (ESLint/typescript-eslint). Não equivale a zero risco.
 - Disponibilidade pública: páginas inicial, formulário e painel responderam HTTP 200; evidências visuais foram capturadas após renderização.
 
-**Limite importante de versão:** a versão hospedada no Lovable e o conteúdo do GitHub não compartilham automaticamente todas as atualizações transitivas de lockfile. Ter um `bun.lock` mais recente no GitHub não prova que o deploy publicado o utiliza. A conferência de equivalência de artefatos de produção continua necessária.
+**Conciliação atualizada em 20/11/2026:** a plataforma Lovable e o GitHub tiveram as versões de dependências Bun/Vitest conciliadas no código-fonte; o lint que falhava com 47 erros de formatação no Lovable passou após autofix, e os 17 testes, o TypeScript e o build foram aprovados. Novo deploy foi solicitado e o domínio segue público e acessível. Ainda não existe readback inequívoco do SHA exato do artefato servido em produção, portanto a equivalência de *build hospedado* permanece uma limitação distinta da equivalência do código.
 
 ## Sobre o mega prompt e os pedidos de correção
 
@@ -46,3 +46,5 @@ Também não se reproduzem aqui supostas mensagens de correção não autenticad
 - Não há homologação abrangente de acessibilidade com leitor de tela.
 - Não há prova de compatibilidade completa entre sistemas operacionais ou de segurança integral em todos os ambientes.
 - A decisão de usar armazenamento local, em vez de backend cloud de pedidos, é uma opção deliberada deste protótipo e deve ser avaliada à luz dos critérios específicos do desafio acadêmico.
+
+Para o registro técnico posterior, consulte [verificação de 20/11/2026](validacao-tecnica-2026-11-20.md).

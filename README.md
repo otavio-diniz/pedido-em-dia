@@ -25,7 +25,7 @@ Não existem contas de usuário, acesso compartilhado, envio de mensagens, Whats
 
 ## Estado atual e demonstração
 
-**MVP educacional publicado:** a página inicial, a solicitação e o painel estão acessíveis publicamente. O código está neste repositório, e **17 testes automatizados** passaram em execução independente em 19/11/2026. A validação com clientes e a homologação acadêmica institucional **não são inferidas** desse estado técnico.
+**MVP educacional publicado:** a página inicial, a solicitação e o painel estão acessíveis publicamente. O código está neste repositório, e **17 testes automatizados** passaram em execuções independentes em 19 e 20/11/2026. A validação com clientes e a homologação acadêmica institucional **não são inferidas** desse estado técnico.
 
 <details>
 <summary>Ver capturas autênticas do aplicativo publicado (somente dados fictícios)</summary>
@@ -76,11 +76,11 @@ Pastas principais: `src/routes/` (páginas), `src/lib/pedidos/` (validação, ID
 
 ## Testes e evidências
 
-A partir de instalação limpa com npm, em **19/11/2026**, foram reproduzidos **17/17 testes** (2 arquivos), lint, verificação TypeScript e build com código de saída zero. O `npm audit` daquele conjunto reportou **0 vulnerabilidades**. A auditoria do `bun.lock` corrigido ainda aponta **1 vulnerabilidade moderada** em uma dependência transitiva do ESLint; isso não é uma aprovação global de segurança.
+A partir de instalações limpas com npm, em **19 e 20/11/2026**, foram reproduzidos **17/17 testes** (2 arquivos), lint, verificação TypeScript e build com código de saída zero. O `npm audit` daquele conjunto reportou **0 vulnerabilidades**. A auditoria do `bun.lock` corrigido ainda aponta **1 vulnerabilidade moderada** em uma dependência transitiva do ESLint; isso não é uma aprovação global de segurança.
 
-A versão hospedada no Lovable **não está comprovadamente sincronizada** com todas as correções transitivas de lockfile feitas no GitHub. O acesso HTTP às rotas públicas e as capturas de tela comprovam disponibilidade e aparência observada, mas não certificam o conjunto completo de interações, segurança ou acessibilidade.
+Em **20/11/2026**, as correções transitivas do Lovable e os manifestos de dependências no GitHub foram reconciliados no código-fonte; o novo deploy foi solicitado. A identidade exata do artefato binário servido pelo provedor ainda não tem readback independente por SHA. O teste em navegador real comprovou criação, cancelamento, persistência, busca, status e exclusão com dados fictícios, sem substituir avaliação integral de acessibilidade ou segurança.
 
-Detalhes rastreáveis, diferenças entre versões, testes e limites: [decisões e validação](docs/decisoes-e-validacao.md).
+Detalhes rastreáveis, diferenças entre versões, testes e limites: [decisões e validação](docs/decisoes-e-validacao.md) e [verificação técnica de 20/11/2026](docs/validacao-tecnica-2026-11-20.md).
 
 ## Segurança, privacidade e limitações
 
@@ -89,7 +89,7 @@ Detalhes rastreáveis, diferenças entre versões, testes e limites: [decisões 
 - Qualquer pessoa com acesso ao mesmo perfil de navegador pode ler, alterar ou apagar os pedidos.
 - Não há autenticação, processamento de pagamentos, proteção multiusuário, atendimento real nem certificação de conformidade com a LGPD.
 - O aplicativo pode carregar fontes web externas; a publicação não deve ser interpretada como ausência absoluta de recursos ou telemetria de terceiros.
-- A análise de segurança do ambiente Lovable deve ser repetida após sincronização das dependências e antes da homologação final.
+- A auditoria de dependências do Lovable foi repetida em 20/11/2026 e permaneceu um aviso moderado em ferramenta de desenvolvimento. Não houve auditoria abrangente de invasão ou conformidade.
 
 ## Mercado, tese e Business Model Canvas — hipóteses
 
