@@ -61,6 +61,8 @@ O build produz artefatos em diretórios ignorados pelo Git. O preset de publica�
 
 ## Portabilidade e limitações
 
+O repositório inclui `.gitattributes` para manter **LF** em arquivos de código, CSS, JSON e documentação, inclusive em clones Windows com `core.autocrlf=true`. Essa medida evita diferenças de finais de linha no lint/Prettier. Para verificar a política no clone, use `git check-attr eol -- src/lib/pedidos/model.ts`.
+
 A configuração foi reproduzida na máquina Windows citada. Ainda **não há readback independente em Linux ou macOS**. Os navegadores têm diferenças de políticas de localStorage, acessibilidade e permissões. Os testes automatizados não equivalem a auditoria de acessibilidade com leitor de tela ou a teste fim a fim em dispositivos físicos.
 
 Para examinar a aplicação já hospedada (sem instalar dependências), use a [demonstração pública](https://pedido-em-dia-otavio-diniz.lovable.app).
